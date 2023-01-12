@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Carousel } from "react-responsive-carousel";
+import './HomePage.css'
 
 export default function HomePage()
 
@@ -65,7 +66,7 @@ Services
         {/* <button style={{borderWidth : 1, borderColor: '#236bf0'}}>
             <text style={{color : "#236bf0"}}>Get in touch</text>
         </button> */}
-        <button type="button"  className="btn btn-outline-primary" >Get in touch</button>
+        <button type="button" className="btn btn-outline-primary">Get in touch</button>
          </div>
          <div style={{padding : '24px 60px', paddingTop : 48}}>
             <text style={{fontSize : 16}}>
@@ -73,7 +74,7 @@ Services
             <span style={{fontWeight : 'bold'}}>Specialist QA & Software Testing </span>
             <span>Company</span>
             </text>
-
+            <button type="button" className="btn btn-outline-secondary">Get in touch</button>
          </div>
   </div>
 

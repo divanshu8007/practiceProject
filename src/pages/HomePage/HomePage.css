@@ -1,0 +1,7 @@
+.btn-outline-primary {
+    border: 1px solid red !important;
+    color: red;
+}
+.btn-outline-primary:hover {
+    background-color: red !important;
+}
