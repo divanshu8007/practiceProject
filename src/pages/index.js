@@ -1,0 +1,1 @@
+import {default as launchingPage} from './launchingPage/LaunchingPage'
