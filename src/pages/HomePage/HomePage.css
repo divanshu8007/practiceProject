@@ -1,7 +1,9 @@
 .btn-outline-primary {
-    border: 1px solid red !important;
-    color: red;
+    border: 1px solid #236bf0 !important;
+    color: #236bf0;
+    border-radius: 0%;
+    font-weight: 500;
 }
 .btn-outline-primary:hover {
-    background-color: red !important;
+    background-color: #236bf0 !important;
 }
