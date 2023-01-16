@@ -7,7 +7,7 @@ import CarouselComp from "../../components/CarouselComp";
 
 
 export default function HomePage() {
-  const [dropDown, setDropDown] = useState(false);
+  const [dropDown, setDropDown] = useState(null);
 
   const services = [
     { service: imagePath.hp },
@@ -37,6 +37,29 @@ export default function HomePage() {
     { name: 'Innovation' }
   ]
 
+  const dropDownList = [
+   {title : 'Functional',
+    data :[
+      {name : "Automation Testing"},
+      {name :"Manual Testing"},
+      {name : "Reggeression Testing"},
+      {name : "Mobile App Testing"}
+
+    ]
+  },
+  {
+    title : "Non Functional",
+    data : [
+      {
+        name : "Performance and Load Testing"
+      },
+      {name : 'Security Testing'},
+      {name : 'Usability Testing'},
+      {name : 'Accessiblity Testing'}
+    ]
+  }
+  ]
+
   const renderServices = (item, index) => {
     return (
       // <img src={item?.service} style={{ height: 150, maxWidth: 275 }}/>
@@ -46,7 +69,7 @@ export default function HomePage() {
     )
   }
 
-  const renderTasks = (item) => {
+  const renderTasks = (item, index) => {
     return (
       <div
         style={styles.tasks}
@@ -55,17 +78,41 @@ export default function HomePage() {
           alignContent: 'center',
           alignItems: 'center', display: 'flex'
         }}>
-          <button style={{ borderWidth: 0, backgroundColor: "transparent" }}>
-            {item.name}
+          <button style={{ borderWidth: 0, backgroundColor: "transparent" }} onMouseOver={()=> {setDropDown(index)}}>
+            <text>{item.name}</text> <img src={imagePath.downArrow} style={{ maxHeight: 15, maxWidth: 15 }} />
           </button>
-          <img src={imagePath.downArrow} style={{ maxHeight: 15, maxWidth: 15 }} /></div>
+          </div>
       </div>
+    )
+  }
+  const dropDownRender = (item) => {
+    return(
+      <div>
+      <text>
+        {item.title}
+      </text>
+      <text>
+        {item.data.name}
+      </text></div>
+    )
+  }
+  const DropDownData = () =>{
+    return (
+      
+<div style={{display : "flex", maxWidth : '50%', maxHeight : '50%', position: 'absolute',zIndex: 3000 }}>
+  <FlatList list={dropDownList}
+      renderItem={dropDownRender}
+  />
+
+</div>
     )
   }
   return (
     <div
       style={styles.container}
     >
+      {/* {{dropDown : 1} && <DropDownData/>}
+      {dropDown=4 ? alert(dropDown) : null} */}
       <div
         style={styles.taskBar}
       >
@@ -73,6 +120,7 @@ export default function HomePage() {
         <FlatList
           renderItem={renderTasks}
           list={taskBar}
+
         />
         <button
           style={{ maxWidth: '30%', margin: 20, left: 0 }}
