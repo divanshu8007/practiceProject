@@ -12,5 +12,7 @@ export default {
     flightCentre : require('../assets/images/Flight-Centre-Travel-Group.png'),
     amd : require('../assets/images/AMD_logo_logotype.png'),
     x8 : require('../assets/images/8x8-Logo.png'),
-    arrow : require('../assets/images/right-arrow.png')
+    arrow : require('../assets/images/right-arrow.png'),
+    downArrow : require('../assets/images/down.png'),
+    searchIcon : require('../assets/images/loupe.png')
 }
