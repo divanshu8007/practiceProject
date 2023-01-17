@@ -8,7 +8,7 @@ import CarouselComp from "../../components/CarouselComp";
 
 export default function HomePage() {
   const [dropDown, setDropDown] = useState(null);
-
+  
   const services = [
     { service: imagePath.hp },
     { service: imagePath.amd },
@@ -78,7 +78,7 @@ export default function HomePage() {
           alignContent: 'center',
           alignItems: 'center', display: 'flex'
         }}>
-          <button style={{ borderWidth: 0, backgroundColor: "transparent" }} onMouseOver={()=> {setDropDown(index)}}>
+          <button style={{ borderWidth: 0, backgroundColor: "transparent" }} onMouseOver={()=> {setDropDown(index)}} onMouseOut={()=> {setDropDown(null)}}>
             <text>{item.name}</text> <img src={imagePath.downArrow} style={{ maxHeight: 15, maxWidth: 15 }} />
           </button>
           </div>
@@ -87,15 +87,22 @@ export default function HomePage() {
   }
   const dropDownRender = (item) => {
     return(
-      <div>
+      <div style={{flexDirection: 'column', display : 'flex'}}>
       <text>
         {item.title}
       </text>
-      <text>
-        {item.data.name}
-      </text></div>
+    {item['data'].map((names) =>{
+    // alert(names)
+      return(
+  <text>
+  {names.name}
+</text>)
+    })}
+    </div>
     )
   }
+  // { alert(JSON.stringify(dropDownList))}
+
   const DropDownData = () =>{
     return (
       
@@ -111,8 +118,8 @@ export default function HomePage() {
     <div
       style={styles.container}
     >
-      {/* {{dropDown : 1} && <DropDownData/>}
-      {dropDown=4 ? alert(dropDown) : null} */}
+      {dropDown  && <DropDownData/>}
+    
       <div
         style={styles.taskBar}
       >
